@@ -78,7 +78,6 @@ fn calculate_most_popular_bit_type(binary_numbers: &[Vec<char>]) -> Vec<usize> {
                 pos_count.push(0);
             }
 
-
             if char == &'1' { 
                 pos_count[idx] += 1 
             }

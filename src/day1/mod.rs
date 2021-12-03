@@ -64,7 +64,7 @@ mod tests {
     }
 
     #[test]
-    fn part_1_works() {
+    fn examples_work() {
         let test_str = String::from(
             "199
 200
@@ -78,22 +78,6 @@ mod tests {
 263",
         );
         assert_eq!(part_1(&test_str), 7);
-    }
-
-    #[test]
-    fn part_2_works() {
-        let test_str = String::from(
-            "199
-200
-208
-210
-200
-207
-240
-269
-260
-263",
-        );
         assert_eq!(part_2(&test_str), 5);
     }
 }

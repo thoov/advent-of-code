@@ -61,7 +61,7 @@ mod tests {
     }
 
     #[test]
-    fn part_1_works() {
+    fn examples_works() {
         let test_str = String::from("forward 5
 down 5
 forward 8
@@ -70,17 +70,6 @@ down 8
 forward 2");
 
         assert_eq!(part_1(&test_str), 150);
-    }
-
-    #[test]
-    fn part_2_works() {
-        let test_str = String::from("forward 5
-down 5
-forward 8
-up 3
-down 8
-forward 2");
-
         assert_eq!(part_2(&test_str), 900);
     }
 }

@@ -6,16 +6,16 @@ pub fn solve() -> (usize, usize) {
 }
 
 fn part_1(contents: &str) -> usize {
-    let first = contents.lines().nth(0).unwrap();
+    let first = contents.lines().next().unwrap();
 
     let drawn_numbers = parse_drawn_numbers(first);
-    let boards = parse_game_boards(&contents);
+    let boards = parse_game_boards(contents);
 
     let mut idx_of_board = 0;
     let mut lowest_bingo = 999999999;
     
     for (idx, board) in boards.iter().enumerate() {
-        let bingo_score = find_bingo(&board, &drawn_numbers);
+        let bingo_score = find_bingo(board, &drawn_numbers);
 
         match bingo_score {
             None => {},
@@ -32,16 +32,16 @@ fn part_1(contents: &str) -> usize {
 }
 
 fn part_2(contents: &str) -> usize {
-    let first = contents.lines().nth(0).unwrap();
+    let first = contents.lines().next().unwrap();
 
     let drawn_numbers = parse_drawn_numbers(first);
-    let boards = parse_game_boards(&contents);
+    let boards = parse_game_boards(contents);
 
     let mut idx_of_board = 0;
     let mut lowest_bingo = 0;
     
     for (idx, board) in boards.iter().enumerate() {
-        let bingo_score = find_bingo(&board, &drawn_numbers);
+        let bingo_score = find_bingo(board, &drawn_numbers);
 
         match bingo_score {
             None => {},
@@ -58,7 +58,7 @@ fn part_2(contents: &str) -> usize {
 }
 
 fn parse_drawn_numbers(raw_input: &str) -> Vec<usize> {
-    raw_input.split(",").map(|s| s.parse::<usize>().unwrap()).collect()
+    raw_input.split(',').map(|s| s.parse::<usize>().unwrap()).collect()
 }
 
 fn parse_game_boards(raw_input: &str) -> Vec<Vec<Vec<usize>>> {
@@ -69,13 +69,13 @@ fn parse_game_boards(raw_input: &str) -> Vec<Vec<Vec<usize>>> {
         if i == 0 || i == 1 {
             continue;
         }
-        if line.len() == 0 {
+        if line.is_empty() {
             idx += 1;
             boards.push(vec![]);
             continue;
         }
 
-       let v: Vec<usize> = line.split(" ").filter(|s| s != &"").map(|s| s.parse::<usize>().unwrap()).collect();
+       let v: Vec<usize> = line.split(' ').filter(|s| s != &"").map(|s| s.parse::<usize>().unwrap()).collect();
        boards[idx].push(v);
     }
 

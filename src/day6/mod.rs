@@ -8,13 +8,11 @@ pub fn solve() -> (usize, usize) {
 fn part_1(contents: &str) -> usize {
     let age_of_fish: Vec<usize> = contents.lines().next().unwrap().split(",").map(|s| s.parse::<usize>().unwrap()).collect();
     count_lanternfish(&age_of_fish, 80)
-
 }
 
 fn part_2(contents: &str) -> usize {
     let age_of_fish: Vec<usize> = contents.lines().next().unwrap().split(',').map(|s| s.parse::<usize>().unwrap()).collect();
     count_lanternfish(&age_of_fish, 256)
-
 }
 
 fn count_lanternfish(age_of_fish: &Vec<usize>, num_days: usize) -> usize {

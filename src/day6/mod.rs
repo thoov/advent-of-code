@@ -6,7 +6,7 @@ pub fn solve() -> (usize, usize) {
 }
 
 fn part_1(contents: &str) -> usize {
-    let age_of_fish: Vec<usize> = contents.lines().next().unwrap().split(",").map(|s| s.parse::<usize>().unwrap()).collect();
+    let age_of_fish: Vec<usize> = contents.lines().next().unwrap().split(',').map(|s| s.parse::<usize>().unwrap()).collect();
     count_lanternfish(&age_of_fish, 80)
 }
 
@@ -15,7 +15,7 @@ fn part_2(contents: &str) -> usize {
     count_lanternfish(&age_of_fish, 256)
 }
 
-fn count_lanternfish(age_of_fish: &Vec<usize>, num_days: usize) -> usize {
+fn count_lanternfish(age_of_fish: &[usize], num_days: usize) -> usize {
     let mut count_at_stage: Vec<usize> = vec![
         0,
         age_of_fish.iter().filter(|&f| f == &1).count(),
@@ -50,7 +50,7 @@ fn count_lanternfish(age_of_fish: &Vec<usize>, num_days: usize) -> usize {
         count_at_stage[0] = stage_1;
     }
 
-    count_at_stage.iter().fold(0, |acc, value| acc + value)
+    count_at_stage.iter().sum()
 }
 
 #[cfg(test)]

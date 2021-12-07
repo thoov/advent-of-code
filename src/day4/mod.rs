@@ -82,7 +82,7 @@ fn parse_game_boards(raw_input: &str) -> Vec<Vec<Vec<usize>>> {
     boards
 }
 
-fn find_bingo(board: &Vec<Vec<usize>>, drawn_numbers: &Vec<usize>) -> Option<usize> {
+fn find_bingo(board: &[Vec<usize>], drawn_numbers: &[usize]) -> Option<usize> {
     let mut bingo_idx: Option<usize> = None;
 
     for row in board.iter() {
@@ -142,7 +142,7 @@ fn find_bingo(board: &Vec<Vec<usize>>, drawn_numbers: &Vec<usize>) -> Option<usi
     bingo_idx
 }
 
-fn calculate_board_score(board: &Vec<Vec<usize>>, drawn_numbers: &Vec<usize>, idx_of_bingo: usize) -> usize {
+fn calculate_board_score(board: &[Vec<usize>], drawn_numbers: &[usize], idx_of_bingo: usize) -> usize {
     let mut unmarked_score = 0;
 
     for row in board {
